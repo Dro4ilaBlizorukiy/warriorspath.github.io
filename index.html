@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warrior's Path | Arma 3 Vietnam War</title>
+    <style>
+        /* Основные цвета: оливковый, черный, песочный */
+        :root {
+            --army-green: #4b5320;
+            --dark-bg: #0d0d0d;
+            --text-color: #d4d4d4;
+            --accent: #8b0000; /* Цвет крови/берета */
+        }
 
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('ССЫЛКА_НА_ТВОЕ_ФОТО'); /* Фон */
+            background-size: cover;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ШАПКА ПО ТВОЕЙ СХЕМЕ */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--army-green);
+            text-transform: uppercase;
+            border: 2px solid var(--army-green);
+            padding: 5px 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--army-green); }
+
+        /* ЦЕНТРАЛЬНЫЙ БЛОК */
+        main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-btn {
+            background-color: var(--army-green);
+            color: white;
+            padding: 20px 50px;
+            font-size: 24px;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: 0.3s;
+            margin-top: 100px; /* Смещаем вниз по схеме */
+        }
+
+        .hero-btn:hover {
+            background-color: #5b6330;
+            transform: scale(1.05);
+        }
+
+        /* ПОДВАЛ И ДОП.ССЫЛКИ */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 20px 50px;
+        }
+
+        .disclaimer {
+            font-size: 10px;
+            max-width: 400px;
+            color: #666;
+            text-align: left;
+        }
+
+        .extra-links a {
+            color: var(--army-green);
+            text-decoration: none;
+            display: block;
+            text-align: right;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .extra-links a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Warrior's Path</div>
+        <nav>
+            <a href="#about">Блок 1: О нас</a>
+            <a href="#auth">Блок 2: История</a>
+            <a href="#rules">Блок 3: Правила</a>
+        </nav>
+    </header>
+
+    <main>
+        <a href="ТВОЙ_ДИСКОРД" class="hero-btn">Записаться на службу</a>
+    </main>
+
+    <footer>
+        <div class="disclaimer">
+            This activity supports the U.S. military and its veterans; however, it is not officially connected to or endorsed by the U.S. Department of War or any of its branches.
+        </div>
+        <div class="extra-links">
+            <a href="#">Steam Workshop</a>
+            <a href="#">YouTube Канал</a>
+            <a href="#">Архив писем</a>
+        </div>
+    </footer>
+
+</body>
+</html>
