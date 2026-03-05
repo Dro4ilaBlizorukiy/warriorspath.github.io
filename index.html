@@ -14,8 +14,9 @@
             color: #d4d4d4;
         }
 
+        /* Анимация появления */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -23,91 +24,84 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 40px;
-            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 40px;
+            background: rgba(0, 0, 0, 0.92);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
             border-bottom: 2px solid #4b5320;
         }
 
-        .logo-img { height: 80px; } /* Увеличил лого */
+        .logo-img { height: 70px; }
 
-        nav a {
-            color: white;
+        /* Навигация справа по твоей схеме */
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #fff;
             text-decoration: none;
-            margin-left: 20px;
             text-transform: uppercase;
-            font-size: 16px;
+            font-size: 13px;
             font-weight: bold;
             transition: 0.3s;
+            border-bottom: 1px solid transparent;
         }
-        nav a:hover { color: #4b5320; }
+
+        .nav-links a:hover {
+            color: #4b5320;
+            border-bottom: 1px solid #4b5320;
+        }
 
         .hero {
-            height: 75vh;
+            height: 70vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            animation: fadeInUp 1.2s ease;
+            animation: fadeInUp 1s ease;
         }
 
         .join-btn img {
-            width: 400px; /* Сделал кнопку еще заметнее */
+            width: 380px;
             transition: 0.4s;
+            cursor: pointer;
         }
-        .join-btn img:hover { transform: scale(1.08); filter: brightness(1.2); }
+        .join-btn img:hover { transform: scale(1.05); filter: brightness(1.2); }
 
         .content-section {
-            padding: 80px 20px;
-            background: rgba(10, 10, 10, 0.96);
+            padding: 100px 20px;
+            background: rgba(10, 10, 10, 0.97);
             border-bottom: 1px solid #222;
         }
 
-        .container { max-width: 900px; margin: auto; animation: fadeInUp 1s ease; }
+        .container { max-width: 900px; margin: auto; }
 
-        h2 { color: #4b5320; text-transform: uppercase; border-left: 5px solid #4b5320; padding-left: 15px; font-size: 28px; }
-        p { font-size: 18px; line-height: 1.6; }
+        h2 { color: #4b5320; text-transform: uppercase; border-left: 5px solid #4b5320; padding-left: 15px; margin-bottom: 30px; }
+        p { font-size: 18px; line-height: 1.7; margin-bottom: 20px; }
 
-        .history-box {
+        .letter-box {
             background: #e0e0e0;
             color: #111;
-            padding: 25px;
+            padding: 30px;
             font-family: 'Times New Roman', serif;
             border: 1px solid #999;
             margin-top: 20px;
+            line-height: 1.4;
         }
 
-        footer { 
-            padding: 60px 40px; 
-            background: #000; 
-            border-top: 2px solid #4b5320;
+        footer {
+            padding: 50px;
+            background: #000;
+            text-align: center;
         }
 
-        .footer-grid {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .footer-grid a {
-            color: #4b5320;
-            text-decoration: none;
-            font-size: 20px; /* Крупные ссылки по твоему запросу */
-            font-weight: bold;
-            text-transform: uppercase;
-            margin: 10px;
-            transition: 0.3s;
-        }
-        .footer-grid a:hover { color: #fff; transform: translateY(-3px); }
-
-        .disclaimer { 
-            text-align: center; 
-            font-size: 11px; 
-            color: #444; 
-            max-width: 800px; 
-            margin: 0 auto;
+        .disclaimer {
+            font-size: 11px;
+            color: #444;
+            max-width: 700px;
+            margin: 20px auto 0;
         }
     </style>
 </head>
@@ -115,10 +109,12 @@
 
     <header>
         <img src="logo.png" alt="Warrior's Path Logo" class="logo-img">
-        <nav>
+        <nav class="nav-links">
             <a href="#about">О нас</a>
             <a href="#history">История</a>
-            <a href="#rules">Устав</a>
+            <a href="https://t.me/warriorspathrp" target="_blank">Связаться с сообществом</a>
+            <a href="https://www.youtube.com/channel/UCLiXOs7q6pLTuGqxE" target="_blank">Архив видео</a>
+            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3493727170" target="_blank">Моды (Steam)</a>
         </nav>
     </header>
 
@@ -130,39 +126,26 @@
 
     <div class="content-section" id="about">
         <div class="container">
-            <h2>Блок 1: О нас</h2>
-            <p>Warrior's Path (est. 2024) — это бесплатное тактическое сообщество в Arma 3, посвященное детальной цифровой реконструкции конфликтов 1960-х годов. Мы фокусируемся на сохранении памяти о людях и исторической точности событий той эпохи. Любой может присоединится и помочь, а также поучаствовать в захватывающих сражениях в масштабах игры. Никакого доната, платных DLC и высокомерия администрации.</p>
+            <h2>О нас</h2>
+            <p>Warrior's Path (est. 2024) — это бесплатное тактическое сообщество в Arma 3, посвященное детальной цифровой реконструкции конфликтов 1960-х годов[cite: 9].</p>
+            <p>Мы фокусируемся на сохранении памяти о людях и исторической точности событий той эпохи[cite: 9, 10]. Любой может присоединится и помочь, а также поучаствовать в захватывающих сражениях в масштабах игры. Никакого доната, платных DLC и высокомерия администрации[cite: 16].</p>
         </div>
     </div>
 
     <div class="content-section" id="history">
         <div class="container">
-            <h2>Блок 2: История и Легитимность</h2>
-            <p>Наш проект получил официальные инструкции от Branding and Trademark Licensing Program Министерства обороны США. Мы ценим прозрачность и соблюдение правил использования исторической символики.</p>
-            <div class="history-box">
-                <strong>OFFICIAL RESPONSE FROM PENTAGON PA MAILBOX:</strong><br><br>
-                "Each Military Service must provide written permission for use of their respective marks. Recommend reaching out to the appropriate Military Service Trademark Licensing Office..."
+            <h2>История и Легитимность</h2>
+            <p>Проект придерживается принципов прозрачности и получил официальные инструкции от Branding and Trademark Licensing Program Министерства обороны США[cite: 31].</p>
+            
+            <div class="letter-box">
+                <strong>OFFICIAL CORRESPONDENCE: DoW Branding and Trademark Licensing</strong><br>
+                <strong>DATE: March 3, 2026</strong> [cite: 26]<br><br>
+                "Each Military Service must provide written permission for use of their respective marks. Recommend reaching out to the appropriate Military Service Trademark Licensing Office..." [cite: 27, 28]
             </div>
         </div>
     </div>
 
-    <div class="content-section" id="rules">
-        <div class="container">
-            <h2>Блок 3: Устав</h2>
-            <ul>
-                <li><strong>Возраст:</strong> Строго 18+.</li>
-                <li><strong>Версия:</strong> Только лицензионная Arma 3.</li>
-                <li><strong>RP-режим:</strong> Соблюдение субординации и погружение в эпоху.</li>
-            </ul>
-        </div>
-    </div>
-
     <footer>
-        <div class="footer-grid">
-            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3493727170" target="_blank">Steam Workshop</a>
-            <a href="https://www.youtube.com/channel/UCLiXOs7q6pLTuGqxE" target="_blank">YouTube Archive</a>
-            <a href="https://t.me/warriorspathrp" target="_blank">Connect with Community</a>
-        </div>
         <div class="disclaimer">
             This activity supports the U.S. military and its veterans; however, it is not officially connected to or endorsed by the U.S. Department of War or any of its branches.
         </div>
