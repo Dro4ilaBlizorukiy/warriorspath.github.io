@@ -5,135 +5,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warrior's Path | Arma 3 Vietnam War</title>
     <style>
-        /* Основные цвета: оливковый, черный, песочный */
         :root {
-            --army-green: #4b5320;
-            --dark-bg: #0d0d0d;
-            --text-color: #d4d4d4;
-            --accent: #8b0000; /* Цвет крови/берета */
+            --army-olive: #4b5320;
+            --stencil-white: #d4d4d4;
+            --blood-red: #8b0000;
         }
 
         body {
             margin: 0;
-            padding: 0;
-            background-color: var(--dark-bg);
-            color: var(--text-color);
             font-family: 'Courier New', Courier, monospace;
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('ССЫЛКА_НА_ТВОЕ_ФОТО'); /* Фон */
+            background: #000 url('bg.jpg') no-repeat center center fixed;
             background-size: cover;
-            background-attachment: fixed;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
+            color: var(--stencil-white);
+            line-height: 1.6;
         }
 
-        /* ШАПКА ПО ТВОЕЙ СХЕМЕ */
+        /* Навигация по твоей схеме */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
-            background: rgba(0,0,0,0.8);
+            padding: 10px 40px;
+            background: rgba(0, 0, 0, 0.85);
+            border-bottom: 2px solid var(--army-olive);
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--army-green);
-            text-transform: uppercase;
-            border: 2px solid var(--army-green);
-            padding: 5px 10px;
+        .logo-img {
+            height: 80px;
+            filter: drop-shadow(0 0 5px var(--army-olive));
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 30px;
+            margin-left: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
             font-size: 14px;
-            text-transform: uppercase;
-            transition: 0.3s;
         }
 
-        nav a:hover { color: var(--army-green); }
+        nav a:hover { color: var(--army-olive); }
 
-        /* ЦЕНТРАЛЬНЫЙ БЛОК */
-        main {
-            flex-grow: 1;
+        /* Центральный блок высадки */
+        .hero {
+            height: 70vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
+            align-items: flex-end; /* Кнопка внизу по схеме */
+            padding-bottom: 50px;
         }
 
-        .hero-btn {
-            background-color: var(--army-green);
-            color: white;
-            padding: 20px 50px;
-            font-size: 24px;
-            text-decoration: none;
-            text-transform: uppercase;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            transition: 0.3s;
-            margin-top: 100px; /* Смещаем вниз по схеме */
+        .join-btn img {
+            width: 300px;
+            transition: transform 0.3s, filter 0.3s;
+            cursor: pointer;
         }
 
-        .hero-btn:hover {
-            background-color: #5b6330;
+        .join-btn img:hover {
             transform: scale(1.05);
+            filter: brightness(1.2);
         }
 
-        /* ПОДВАЛ И ДОП.ССЫЛКИ */
+        /* Блоки контента */
+        .content-section {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 60px 20px;
+            border-top: 1px solid #333;
+        }
+
+        .container { max-width: 900px; margin: auto; }
+
+        h2 {
+            color: var(--army-olive);
+            text-transform: uppercase;
+            border-left: 5px solid var(--army-olive);
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        .history-box {
+            background: #fff;
+            color: #000;
+            padding: 30px;
+            font-family: Arial, sans-serif;
+            border-radius: 3px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            margin-top: 20px;
+        }
+
+        /* Подвал */
         footer {
+            background: #000;
+            padding: 30px 50px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
-            padding: 20px 50px;
+            align-items: center;
+            border-top: 2px solid var(--army-olive);
         }
 
-        .disclaimer {
-            font-size: 10px;
-            max-width: 400px;
-            color: #666;
-            text-align: left;
-        }
+        .disclaimer { font-size: 11px; color: #555; max-width: 500px; }
 
-        .extra-links a {
-            color: var(--army-green);
-            text-decoration: none;
+        .footer-links a {
             display: block;
-            text-align: right;
+            color: var(--army-olive);
+            text-decoration: none;
             font-size: 12px;
-            margin-top: 5px;
+            text-align: right;
         }
-
-        .extra-links a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">Warrior's Path</div>
+        <img src="logo.jpg" alt="Warrior's Path Logo" class="logo-img">
         <nav>
-            <a href="#about">Блок 1: О нас</a>
-            <a href="#auth">Блок 2: История</a>
-            <a href="#rules">Блок 3: Правила</a>
+            <a href="#about">О нас</a>
+            <a href="#history">История</a>
+            <a href="#rules">Устав</a>
         </nav>
     </header>
 
-    <main>
-        <a href="ТВОЙ_ДИСКОРД" class="hero-btn">Записаться на службу</a>
-    </main>
+    <section class="hero">
+        <a href="https://discord.gg/ТВОЙ_ИНВАЙТ" class="join-btn">
+            <img src="join_button.jpg" alt="Записаться на службу">
+        </a>
+    </section>
+
+    <div class="content-section" id="about">
+        <div class="container">
+            <h2>Блок 1: О нас</h2>
+            <p>Warrior's Path (est. 2024) — это закрытое тактическое сообщество в Arma 3, посвященное детальной цифровой реконструкции конфликтов 1960-х годов. Мы фокусируемся на сохранении памяти о ветеранах и исторической точности событий той эпохи.</p>
+        </div>
+    </div>
+
+    <div class="content-section" id="history">
+        <div class="container">
+            <h2>Блок 2: История и Легитимность</h2>
+            <p>Наш проект придерживается высоких стандартов этики. Мы официально обратились в Министерство обороны США для получения разъяснений по использованию исторических знаков отличия.</p>
+            
+            <div class="history-box">
+                <strong>ОФИЦИАЛЬНЫЙ ОТВЕТ PENTAGON PA (DOW):</strong><br><br>
+                <i>"Thank you for your email. Each Military Service must provide written permission for use of their respective marks..."</i> <br><br>
+                <small>Дата получения: 3 марта 2026 года.</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section" id="rules">
+        <div class="container">
+            <h2>Блок 3: Устав</h2>
+            <ul>
+                <li>Возрастной ценз: 18+.</li>
+                <li>Наличие лицензионной копии Arma 3.</li>
+                <li>Соблюдение субординации и исторического реализма (Milsim).</li>
+            </ul>
+        </div>
+    </div>
 
     <footer>
         <div class="disclaimer">
-            This activity supports the U.S. military and its veterans; however, it is not officially connected to or endorsed by the U.S. Department of War or any of its branches.
+            This activity supports the U.S. military and its veterans; however, it is not officially connected to or endorsed by the U.S. Department of War or any of its branches. 
         </div>
-        <div class="extra-links">
+        <div class="footer-links">
             <a href="#">Steam Workshop</a>
-            <a href="#">YouTube Канал</a>
-            <a href="#">Архив писем</a>
+            <a href="#">YouTube Archive</a>
+            <a href="#">Support Veterans</a>
         </div>
     </footer>
 
