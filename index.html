@@ -15,17 +15,11 @@
             color: #d4d4d4;
         }
 
-        /* Анимация плавного появления */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
+            padding: 15px 40px;
             background: rgba(0, 0, 0, 0.95);
             position: sticky;
             top: 0;
@@ -33,93 +27,72 @@
             border-bottom: 2px solid #4b5320;
         }
 
-        .logo-img { height: 75px; display: block; }
+        .logo-img { height: 70px; display: block; }
 
-        /* Навигация справа */
         .nav-right {
             display: flex;
-            gap: 20px;
-            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .nav-right a {
             color: #fff;
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: bold;
-            transition: 0.3s;
-            padding: 5px 10px;
+            padding: 8px 12px;
             border: 1px solid transparent;
+            transition: 0.3s;
         }
 
         .nav-right a:hover {
             color: #4b5320;
-            border: 1px solid #4b5320;
-            background: rgba(75, 83, 32, 0.1);
+            border-color: #4b5320;
         }
 
         .hero {
-            height: 75vh;
+            height: 70vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            animation: fadeInUp 1s ease;
         }
 
         .join-btn img {
-            width: 420px;
-            max-width: 90%;
-            transition: 0.4s;
+            width: 380px;
+            max-width: 95%;
             cursor: pointer;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            transition: 0.4s;
         }
-        .join-btn img:hover { transform: scale(1.05); filter: brightness(1.2); }
+        .join-btn img:hover { transform: scale(1.05); }
 
         .content-section {
-            padding: 100px 20px;
+            padding: 80px 20px;
             background: rgba(10, 10, 10, 0.98);
             border-bottom: 1px solid #222;
         }
 
-        .container { max-width: 900px; margin: auto; }
+        .container { max-width: 1000px; margin: auto; }
 
-        h2 { color: #4b5320; text-transform: uppercase; border-left: 5px solid #4b5320; padding-left: 15px; margin-bottom: 30px; font-size: 24px; }
-        p { font-size: 18px; line-height: 1.8; margin-bottom: 25px; text-align: justify; }
+        h2 { color: #4b5320; text-transform: uppercase; border-left: 5px solid #4b5320; padding-left: 15px; margin-bottom: 30px; }
+        p { font-size: 18px; line-height: 1.6; margin-bottom: 20px; }
 
-        .history-box {
-            background: #e0e0e0;
-            color: #111;
-            padding: 30px;
-            font-family: 'Times New Roman', serif;
-            border: 1px solid #999;
-            margin-top: 25px;
-            line-height: 1.5;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+        /* Окно для PDF */
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #4b5320;
+            margin-top: 30px;
+            background: #fff;
         }
 
-        footer {
-            padding: 60px 20px;
-            background: #000;
-            text-align: center;
-            border-top: 2px solid #4b5320;
-        }
-
-        .disclaimer {
-            font-size: 11px;
-            color: #444;
-            max-width: 750px;
-            margin: 0 auto;
-            line-height: 1.4;
-        }
+        footer { padding: 40px; background: #000; text-align: center; font-size: 11px; color: #444; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-area">
-            <img src="logo.png" alt="Warrior's Path Logo" class="logo-img">
-        </div>
+        <img src="logo.png" alt="Warrior's Path Logo" class="logo-img">
         <nav class="nav-right">
             <a href="#about">О нас</a>
             <a href="#history">История</a>
@@ -131,34 +104,29 @@
 
     <section class="hero">
         <a href="https://discord.gg/GB86Wj7Txh" target="_blank" class="join-btn">
-            <img src="join_button.jpg" alt="Записаться на службу">
+            <img src="join_button.jpg" alt="Записаться">
         </a>
     </section>
 
     <div class="content-section" id="about">
         <div class="container">
             <h2>О нас</h2>
-            <p>Warrior's Path (est. 2024) — это бесплатное тактическое сообщество в Arma 3, посвященное детальной цифровой реконструкции конфликтов 1960-х годов.</p>
-            <p>Мы фокусируемся на сохранении памяти о людях и исторической точности событий той эпохи. Любой может присоединится и помочь, а также поучаствовать в захватывающих сражениях в масштабах игры. Никакого доната, платных DLC и высокомерия администрации[cite: 16].</p>
+            <p>Warrior's Path (est. 2024) — это бесплатное тактическое сообщество в Arma 3, посвященное детальной цифровой реконструкции конфликтов 1960-х годов[cite: 9].</p>
+            <p>Мы фокусируемся на сохранении памяти о людях и исторической точности событий той эпохи[cite: 10]. Любой может присоединиться и помочь, а также поучаствовать в захватывающих сражениях в масштабах игры. Никакого доната, платных DLC и высокомерия администрации[cite: 16].</p>
         </div>
     </div>
 
     <div class="content-section" id="history">
         <div class="container">
-            <h2>История и документы</h2>
+            <h2>История и Легитимность</h2>
             <p>Мы получили официальные инструкции от Branding and Trademark Licensing Program Министерства обороны США. Наш проект носит некоммерческий и образовательный характер[cite: 14, 16].</p>
             
-            <div class="history-box">
-                <strong>OFFICIAL RESPONSE FROM PENTAGON PA MAILBOX:</strong><br><br>
-                "Each Military Service must provide written permission for use of their respective marks. Recommend reaching out to the appropriate Military Service Trademark Licensing Office..." [cite: 27, 28]
-            </div>
+            <iframe src="Gmail - Request permission for using data_ Digital Preservation of the Vietnam War Era.pdf" class="pdf-viewer"></iframe>
         </div>
     </div>
 
     <footer>
-        <div class="disclaimer">
-            This activity supports the U.S. military and its veterans; however, it is not officially connected to or endorsed by the U.S. Department of War or any of its branches. [cite: 27, 29]
-        </div>
+        This activity supports the U.S. military and its veterans; however, it is not officially connected to or endorsed by the U.S. Department of War or any of its branches.
     </footer>
 
 </body>
