@@ -4,125 +4,217 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warrior's Path | WPRP.RU</title>
+    <!-- Подключаем современные тактические шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         html { scroll-behavior: smooth; }
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Courier New', Courier, monospace;
-            background: #000 url('bg.jpg') no-repeat center center fixed;
-            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            background-color: #0a0a0a; /* Резервный цвет, если видео не загрузится */
             color: #d4d4d4;
+            overflow-x: hidden;
         }
 
+        /* --- Кинематографичный фон --- */
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        /* Затемняющий слой над видео для читаемости текста */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: -1;
+        }
+
+        /* --- Шапка с эффектом матового стекла --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 40px;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(10px); /* Размытие фона под шапкой */
+            -webkit-backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 2px solid #4b5320;
+            border-bottom: 1px solid rgba(75, 83, 32, 0.5);
         }
 
-        .logo-img { height: 75px; display: block; }
+        .logo-img { height: 70px; display: block; transition: 0.3s; }
+        .logo-img:hover { filter: drop-shadow(0 0 8px rgba(75,83,32,0.8)); }
 
+        /* --- Современное меню --- */
         .nav-right {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .nav-right a {
+            font-family: 'Oswald', sans-serif;
             color: #fff;
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 8px 12px;
-            border: 1px solid transparent;
-            transition: 0.3s;
+            font-size: 14px;
+            letter-spacing: 1px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
 
         .nav-right a:hover {
-            color: #4b5320;
+            background: #4b5320;
+            border-color: #4b5320;
+            box-shadow: 0 0 15px rgba(75, 83, 32, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Выделенная кнопка коллекции */
+        .nav-right a.accent-btn {
+            background: rgba(75, 83, 32, 0.8);
             border-color: #4b5320;
         }
 
+        /* --- Главный экран (Hero) --- */
         .hero {
-            height: 70vh;
+            height: 80vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .join-btn img {
-            width: 380px;
-            max-width: 95%;
-            cursor: pointer;
-            transition: 0.4s;
+        /* Обертка для картинки-кнопки со свечением */
+        .join-btn-wrapper {
+            display: inline-block;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(75, 83, 32, 0.4);
+            transition: all 0.4s ease;
+            animation: pulse 3s infinite;
         }
-        .join-btn img:hover { transform: scale(1.05); filter: brightness(1.1); }
 
+        @keyframes pulse {
+            0% { box-shadow: 0 0 15px rgba(75, 83, 32, 0.4); }
+            50% { box-shadow: 0 0 35px rgba(75, 83, 32, 0.8); }
+            100% { box-shadow: 0 0 15px rgba(75, 83, 32, 0.4); }
+        }
+
+        .join-btn-wrapper:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(75, 83, 32, 1);
+            animation: none;
+        }
+
+        .join-btn-wrapper img {
+            width: 380px;
+            max-width: 95vw;
+            display: block;
+        }
+
+        /* --- Контентные секции --- */
         .content-section {
             padding: 80px 20px;
-            background: rgba(10, 10, 10, 0.98);
-            border-bottom: 1px solid #222;
+            background: rgba(12, 12, 12, 0.85); /* Полупрозрачный фон блоков */
+            backdrop-filter: blur(5px);
+            border-top: 1px solid rgba(75, 83, 32, 0.3);
         }
 
         .container { max-width: 1000px; margin: auto; }
 
-        h2 { color: #4b5320; text-transform: uppercase; border-left: 5px solid #4b5320; padding-left: 15px; margin-bottom: 30px; }
-        p { font-size: 18px; line-height: 1.6; margin-bottom: 20px; text-align: left; }
+        h2 { 
+            font-family: 'Oswald', sans-serif;
+            color: #fff; 
+            font-size: 32px;
+            letter-spacing: 2px;
+            text-transform: uppercase; 
+            border-left: 5px solid #4b5320; 
+            padding-left: 15px; 
+            margin-bottom: 30px; 
+        }
+        
+        p { 
+            font-size: 18px; 
+            line-height: 1.8; 
+            margin-bottom: 20px; 
+            color: #ccc;
+        }
 
         .doc-image {
             width: 100%;
-            border: 1px solid #4b5320;
-            margin-top: 20px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            border: 2px solid #222;
+            border-radius: 4px;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+        
+        .doc-image:hover {
+            border-color: #4b5320;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
         }
 
+        /* --- Подвал --- */
         footer { 
-            padding: 60px 40px; 
-            background: #000; 
+            padding: 50px 40px; 
+            background: #050505; 
             text-align: center; 
             border-top: 2px solid #4b5320;
         }
 
         .footer-info {
-            font-size: 18px;
-            font-weight: bold;
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            letter-spacing: 2px;
             color: #4b5320;
-            margin-bottom: 20px;
-            text-transform: uppercase;
+            margin-bottom: 15px;
         }
 
         .disclaimer {
-            font-size: 11px;
-            color: #444;
+            font-size: 12px;
+            color: #666;
             max-width: 750px;
             margin: 0 auto;
-            line-height: 1.4;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
 
+    <!-- Фоновое видео (добавь файл bg.mp4 в папку на GitHub) -->
+    <!-- В качестве фоллбэка оставил картинку bg.jpg (poster) -->
+    <video autoplay loop muted playsinline id="bg-video" poster="bg.jpg">
+        <source src="bg.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+
     <header>
-        <img src="logo.png" alt="Warrior's Path Logo" class="logo-img">
+        <img src="logo.jpg" alt="Warrior's Path Logo" class="logo-img">
         <nav class="nav-right">
             <a href="#about">О нас</a>
             <a href="#history">История</a>
-            <a href="https://t.me/warriorspathrp" target="_blank">Связаться с сообществом</a>
+            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3493727170" target="_blank" class="accent-btn">Коллекция</a>
+            <a href="https://t.me/warriorspathrp" target="_blank">Discord / Telegram</a>
             <a href="https://www.youtube.com/channel/UCLiXOs7q6pLTuGqxE" target="_blank">Архив видео</a>
-            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3493727170" target="_blank">Моды (Steam)</a>
         </nav>
     </header>
 
     <section class="hero">
-        <a href="https://discord.gg/GB86Wj7Txh" target="_blank" class="join-btn">
+        <a href="https://discord.gg/GB86Wj7Txh" target="_blank" class="join-btn-wrapper">
             <img src="join_button.jpg" alt="Записаться на службу">
         </a>
     </section>
@@ -139,7 +231,6 @@
         <div class="container">
             <h2>История и Легитимность</h2>
             <p>Мы получили официальные инструкции от Branding and Trademark Licensing Program Министерства обороны США. Наш проект носит некоммерческий и образовательный характер.</p>
-            
             <img src="gmailconfirmation.jpg" alt="Official Pentagon Correspondence" class="doc-image">
         </div>
     </div>
@@ -153,3 +244,27 @@
 
 </body>
 </html>
+```eof
+
+### Шпаргалка: Как обновить сайт через GitHub
+
+GitHub работает просто: ты меняешь файлы в репозитории (хранилище), а система GitHub Pages автоматически "собирает" эти изменения и обновляет твой сайт `wprp.ru`. Деплой (развертывание) происходит сам, тебе нужно только сохранить новые файлы.
+
+**Шаг 1. Обновляем код:**
+1. Зайди в свой репозиторий с сайтом на GitHub.
+2. Кликни по файлу `index.html`.
+3. В правом верхнем углу рамки с кодом нажми на иконку **карандаша** (Edit this file).
+4. Удали весь старый код, скопируй мой код из блока выше и вставь его туда.
+5. Нажми зеленую кнопку **Commit changes...** (вверху справа). В появившемся окне снова нажми зеленую кнопку **Commit changes**.
+
+**Шаг 2. Загружаем видео на фон (по желанию):**
+1. На главной странице твоего репозитория нажми кнопку **Add file** -> **Upload files**.
+2. Перетащи туда заранее сгенерированный кинематографичный ролик (он должен называться строго **`bg.mp4`**). 
+3. Нажми зеленую кнопку **Commit changes**.
+
+**Шаг 3. Как проверить деплой (развертывание):**
+1. В репозитории сверху перейди во вкладку **Actions**.
+2. Ты увидишь там процесс `pages build and deployment`. Возле него будет крутиться желтый кружок (идет сборка).
+3. Подожди 1-2 минуты. Как только появится **зеленая галочка** — сайт полностью обновлен! 
+
+Останется только зайти на `wprp.ru` (если не видишь изменений — нажми `Ctrl + F5`, чтобы сбросить кэш браузера).
