@@ -62,6 +62,7 @@
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .nav-right a {
@@ -168,6 +169,91 @@
             box-shadow: 0 0 20px rgba(0,0,0,0.8);
         }
 
+        /* --- Секция "Связь с сообществом" --- */
+        .community-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid rgba(75, 83, 32, 0.4);
+        }
+
+        .community-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .community-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            font-family: 'Oswald', sans-serif;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            border: 1px solid transparent;
+            display: inline-block;
+        }
+
+        .tg-btn { 
+            background: rgba(36, 161, 222, 0.15); 
+            border-color: rgba(36, 161, 222, 0.5); 
+        }
+        .tg-btn:hover { 
+            background: #24A1DE; 
+            box-shadow: 0 0 20px rgba(36, 161, 222, 0.6); 
+            transform: translateY(-3px);
+        }
+
+        .ds-btn { 
+            background: rgba(88, 101, 242, 0.15); 
+            border-color: rgba(88, 101, 242, 0.5); 
+        }
+        .ds-btn:hover { 
+            background: #5865F2; 
+            box-shadow: 0 0 20px rgba(88, 101, 242, 0.6); 
+            transform: translateY(-3px);
+        }
+
+        .qr-block {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .qr-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 8px;
+            border: 3px solid #fff;
+            background: #fff; /* Белый фон на случай прозрачности PNG */
+        }
+
+        .qr-text {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 0;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         /* --- Подвал --- */
         footer { 
             padding: 50px 40px; 
@@ -191,12 +277,17 @@
             margin: 0 auto;
             line-height: 1.6;
         }
+
+        @media (max-width: 768px) {
+            .community-wrapper { flex-direction: column; text-align: center; padding: 20px; }
+            .community-buttons { justify-content: center; }
+            h2 { border-left: none; border-bottom: 3px solid #4b5320; padding-left: 0; padding-bottom: 10px; display: inline-block;}
+        }
     </style>
 </head>
 <body>
 
-    <!-- Фоновое видео (добавь файл bg.mp4 в папку на GitHub) -->
-    <!-- В качестве фоллбэка оставил картинку bg.jpg (poster) -->
+    <!-- Фоновое видео -->
     <video autoplay loop muted playsinline id="bg-video" poster="bg.jpg">
         <source src="bg.mp4" type="video/mp4">
     </video>
@@ -207,8 +298,8 @@
         <nav class="nav-right">
             <a href="#about">О нас</a>
             <a href="#history">История</a>
+            <a href="#community">Связь</a>
             <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3493727170" target="_blank" class="accent-btn">Коллекция</a>
-            <a href="https://t.me/warriorspathrp" target="_blank">Discord / Telegram</a>
             <a href="https://www.youtube.com/channel/UCLiXOs7q6pLTuGqxE" target="_blank">Архив видео</a>
         </nav>
     </header>
@@ -224,6 +315,26 @@
             <h2>О нас</h2>
             <p>Warrior's Path (est. 2024) — это бесплатное тактическое сообщество в Arma 3, посвященное детальной цифровой реконструкции конфликтов 1960-х годов.</p>
             <p>Мы фокусируемся на сохранении памяти о людях и исторической точности событий той эпохи. Любой может присоединиться и помочь, а также поучаствовать в захватывающих сражениях в масштабах игры. Никакого доната, платных DLC и высокомерия администрации.</p>
+        </div>
+    </div>
+
+    <!-- Новый блок связи с сообществом -->
+    <div class="content-section" id="community">
+        <div class="container">
+            <div class="community-wrapper">
+                <div class="community-text">
+                    <h2>Связь с сообществом</h2>
+                    <p>Для координации, общения, получения лидерских прав и планирования совместных операций мы используем Telegram и Discord. Присоединяйся к нашим каналам связи!</p>
+                    <div class="community-buttons">
+                        <a href="https://t.me/wprparma3" target="_blank" class="social-btn tg-btn">Телеграм чат</a>
+                        <a href="https://discord.gg/GB86Wj7Txh" target="_blank" class="social-btn ds-btn">Дискорд сообщество</a>
+                    </div>
+                </div>
+                <div class="qr-block">
+                    <img src="Warrior's Path.png" alt="Discord QR Code" class="qr-image">
+                    <p class="qr-text">Отсканируй для входа</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -246,25 +357,6 @@
 </html>
 ```eof
 
-### Шпаргалка: Как обновить сайт через GitHub
-
-GitHub работает просто: ты меняешь файлы в репозитории (хранилище), а система GitHub Pages автоматически "собирает" эти изменения и обновляет твой сайт `wprp.ru`. Деплой (развертывание) происходит сам, тебе нужно только сохранить новые файлы.
-
-**Шаг 1. Обновляем код:**
-1. Зайди в свой репозиторий с сайтом на GitHub.
-2. Кликни по файлу `index.html`.
-3. В правом верхнем углу рамки с кодом нажми на иконку **карандаша** (Edit this file).
-4. Удали весь старый код, скопируй мой код из блока выше и вставь его туда.
-5. Нажми зеленую кнопку **Commit changes...** (вверху справа). В появившемся окне снова нажми зеленую кнопку **Commit changes**.
-
-**Шаг 2. Загружаем видео на фон (по желанию):**
-1. На главной странице твоего репозитория нажми кнопку **Add file** -> **Upload files**.
-2. Перетащи туда заранее сгенерированный кинематографичный ролик (он должен называться строго **`bg.mp4`**). 
-3. Нажми зеленую кнопку **Commit changes**.
-
-**Шаг 3. Как проверить деплой (развертывание):**
-1. В репозитории сверху перейди во вкладку **Actions**.
-2. Ты увидишь там процесс `pages build and deployment`. Возле него будет крутиться желтый кружок (идет сборка).
-3. Подожди 1-2 минуты. Как только появится **зеленая галочка** — сайт полностью обновлен! 
-
-Останется только зайти на `wprp.ru` (если не видишь изменений — нажми `Ctrl + F5`, чтобы сбросить кэш браузера).
+### Напоминание по загрузке:
+1. Замени старый код в репозитории на этот.
+2. Не забудь загрузить картинку с QR-кодом в репозиторий GitHub. Она должна называться в точности **`Warrior's Path.png`** (обрати внимание на апостроф и пробел). Если вдруг картинка не появится на сайте, переименуй её на компьютере в `qr.png`, закинь на гитхаб и в коде (строка 226) измени `src="Warrior's Path.png"` на `src="qr.png"`.
